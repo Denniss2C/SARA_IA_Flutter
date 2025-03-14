@@ -1,12 +1,12 @@
-#Fri Mar 14 11:04:20 ECT 2025
-base.0=/Users/denniscaisa/Desktop/DENNIS/MIES/Movil/SARA_IA_Flutter/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/denniscaisa/Desktop/DENNIS/MIES/Movil/SARA_IA_Flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/Users/denniscaisa/Desktop/DENNIS/MIES/Movil/SARA_IA_Flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.3=/Users/denniscaisa/Desktop/DENNIS/MIES/Movil/SARA_IA_Flutter/build/app/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
+#Fri Mar 14 11:38:09 ECT 2025
+base.0=C\:\\SARA_IA_Flutter\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\SARA_IA_Flutter\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\SARA_IA_Flutter\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\SARA_IA_Flutter\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
-path.2=1/classes.dex
-path.3=10/classes.dex
+path.2=10/classes.dex
+path.3=1/classes.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex
