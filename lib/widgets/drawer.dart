@@ -39,9 +39,17 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 _buildDrawerItem(
-                  icon: TrackingDrawables.getSVGListaRegistros(),
-                  title: 'Encuestas Registradas',
-                  subtitle: 'Listado de encuestas',
+                  icon: TrackingDrawables.getSVGRegistroAsis(),
+                  title: 'Registrar asistencia',
+                  subtitle: 'Registro de marcación',
+                  onTap: () {
+                    // Navegación a EncuestaRegistrada
+                  },
+                ),
+                _buildDrawerItem(
+                  icon: TrackingDrawables.getSVGAsistenciaSinc(),
+                  title: 'Asistencias por sincronizar',
+                  subtitle: 'Asistencias pendientes de sincronizar',
                   onTap: () {
                     // Navegación a EncuestaRegistrada
                   },

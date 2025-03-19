@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505 505" width="24" height="24">
+    <circle cx="252.5" cy="252.5" r="252.5" fill="#FFD05B"/>
+    <rect x="125.1" y="104.5" width="254.8" height="323" rx="4.7" fill="#324A5E"/>
+    <path fill="#FFFFFF" d="M146.4,113.7l0,262.8l175.2,0l0,-37l37,0l0,-225.8z"/>
+    <path fill="#E6E9EE" d="M321.6,376.5l37,-37l-37,0z"/>
+    <path fill="#FF7058" d="M273.3,84v-7.3c0,-11.5 -9.3,-20.8 -20.8,-20.8c-11.5,0 -20.8,9.3 -20.8,20.8V84H195v42.6h115.1V84H273.3z"/>
+    <circle cx="252.5" cy="76.8" r="10.4" fill="#FFD05B"/>
+    <rect x="175.7" y="180.4" width="23.8" height="11" fill="#84DBFF"/>
+    <rect x="214.3" y="180.4" width="115" height="11" fill="#E6E9EE"/>
+    <rect x="175.7" y="214.7" width="23.8" height="11" fill="#84DBFF"/>
+    <rect x="214.3" y="214.7" width="115" height="11" fill="#E6E9EE"/>
+    <rect x="175.7" y="249" width="23.8" height="11" fill="#84DBFF"/>
+    <rect x="214.3" y="249" width="115" height="11" fill="#E6E9EE"/>
+    <rect x="175.7" y="283.3" width="23.8" height="11" fill="#84DBFF"/>
+    <rect x="214.3" y="283.3" width="115" height="11" fill="#E6E9EE"/>
+</svg>

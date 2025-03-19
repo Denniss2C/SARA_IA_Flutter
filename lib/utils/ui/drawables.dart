@@ -5,10 +5,6 @@ class TrackingDrawables {
   static String getLogoBlanco() => 'assets/images/LOBLANCO.png';
   static String getLogoAzul() => 'assets/images/LOAZUL.png';
 
-  static String getBanner() => 'assets/images/ic_banner.png';
-  static String getNuevaEncuesta() => 'assets/images/ic_new_encuesta.png';
-  static String getListaEncuestas() => 'assets/images/ic_lista_encuestas.png';
-  static String getInfo() => 'assets/images/ic_info.png';
   static String getFlatEcuador() => 'assets/images/flat_ecuador.png';
   static String getFondoMies() => 'assets/images/fondo_mies.png';
   static String getFondoMiesDark() => 'assets/images/fondo_mies_dark.JPEG';
@@ -22,4 +18,6 @@ class TrackingDrawables {
   static String getSVGLogin() => 'assets/svg/login.svg';
   static String getSVGLogout() => 'assets/svg/logout.svg';
   static String getSVGLauncher() => 'assets/svg/info_dis.svg';
+  static String getSVGRegistroAsis() => 'assets/svg/registro_asis.svg';
+  static String getSVGAsistenciaSinc() => 'assets/svg/asistencia_sinc.svg';
 }
