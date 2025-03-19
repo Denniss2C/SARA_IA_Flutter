@@ -1,6 +1,6 @@
+import 'package:app_sara/utils/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:app_sara/utils/providers/providers.dart';
 
 Future<Map<String, String>?> showLoginDialog(BuildContext context) async {
   TextEditingController usernameController = TextEditingController();
@@ -10,8 +10,8 @@ Future<Map<String, String>?> showLoginDialog(BuildContext context) async {
     context: context,
     builder: (BuildContext context) {
       final userProvider = Provider.of<UserProvider>(context, listen: false);
-      //final passwordVisibilityProvider =
-      //  Provider.of<PasswordVisibilityProvider>(context);
+      final passwordVisibilityProvider =
+          Provider.of<PasswordVisibilityProvider>(context);
       return AlertDialog(
         title: const Text('Iniciar Sesión'),
         content: Column(
@@ -27,16 +27,16 @@ Future<Map<String, String>?> showLoginDialog(BuildContext context) async {
                 labelText: 'Contraseña (Cédula)',
                 suffixIcon: IconButton(
                   icon: Icon(
-                    //passwordVisibilityProvider.isPasswordVisible
-                    Icons.visibility,
-                    //: Icons.visibility_off,
+                    passwordVisibilityProvider.isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
                   ),
                   onPressed: () {
-                    //passwordVisibilityProvider.togglePasswordVisibility();
+                    passwordVisibilityProvider.togglePasswordVisibility();
                   },
                 ),
               ),
-              //obscureText: !passwordVisibilityProvider.isPasswordVisible,
+              obscureText: !passwordVisibilityProvider.isPasswordVisible,
             ),
           ],
         ),

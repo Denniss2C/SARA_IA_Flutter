@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:app_sara/widgets/widgets.dart';
+import 'package:app_sara/screens/screens.dart';
 import 'package:app_sara/utils/ui/ui.dart';
+import 'package:app_sara/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +37,10 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue.shade300, TrackingColors.blanco],
+            colors:
+                Theme.of(context).brightness == Brightness.light
+                    ? [Colors.blue.shade300, TrackingColors.blanco]
+                    : [Colors.blue.shade300, TrackingColors.lightGrey],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -54,13 +58,29 @@ class HomeScreen extends StatelessWidget {
                     crossAxisCount: crossAxisCount,
                     padding: EdgeInsets.all(TrackingDimens.dimen_32),
                     children: [
-                      _buildCard(
+                      buildCard(
                         "Registro de Marcación",
                         Icons.qr_code,
                         context,
+                        () {
+                          Navigator.pushNamed(
+                            context,
+                            ListRegisterScreen.routeName,
+                          );
+                        },
                       ),
-                      _buildCard("Por Sincronizar", Icons.sync, context),
-                      _buildCard("Acerca de", Icons.info, context),
+                      buildCard("Por Sincronizar", Icons.sync, context, () {
+                        Navigator.pushNamed(
+                          context,
+                          ListRegisterScreen.routeName,
+                        );
+                      }),
+                      buildCard("Acerca de", Icons.info, context, () {
+                        Navigator.pushNamed(
+                          context,
+                          ListRegisterScreen.routeName,
+                        );
+                      }),
                     ],
                   );
                 },
@@ -73,35 +93,6 @@ class HomeScreen extends StatelessWidget {
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildCard(String title, IconData icon, BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      elevation: 4,
-      child: InkWell(
-        onTap: () {},
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 70,
-              color:
-                  Theme.of(context).brightness == Brightness.light
-                      ? TrackingColors.indigo
-                      : TrackingColors.blanco,
-            ),
-            SizedBox(height: 10),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
