@@ -51,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
                   title: 'Acerca de',
                   subtitle: 'Información aplicación',
                   onTap: () {
-                    // Navegación a Mies
+                    Navigator.pushNamed(context, AboutScreen.routeName);
                   },
                 ),
                 const Divider(),

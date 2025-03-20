@@ -81,10 +81,7 @@ class HomeScreen extends StatelessWidget {
                         );
                       }),
                       buildCard("Acerca de", Icons.info, context, () {
-                        Navigator.pushNamed(
-                          context,
-                          ListRegisterScreen.routeName,
-                        );
+                        Navigator.pushNamed(context, AboutScreen.routeName);
                       }),
                       if (userProvider.userName != null) ...[
                         buildCard(

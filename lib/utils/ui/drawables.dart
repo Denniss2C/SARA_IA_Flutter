@@ -10,6 +10,7 @@ class TrackingDrawables {
   static String getFondoMiesDark() => 'assets/images/fondo_mies_dark.JPEG';
   static String getUsuario() => 'assets/images/ic_user.png';
   static String getLaucher() => 'assets/images/ic_launcher.png';
+  static String getLogoSARA() => 'assets/images/logoSARA.png';
 
   //SVG
   static String getSVGPrincipal() => 'assets/svg/principal.svg';
