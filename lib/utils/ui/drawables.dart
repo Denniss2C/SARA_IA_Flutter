@@ -16,9 +16,10 @@ class TrackingDrawables {
   static String getSVGPrincipal() => 'assets/svg/principal.svg';
   static String getSVGAcercaDe() => 'assets/svg/acercaDe.svg';
   static String getSVGListaRegistros() => 'assets/svg/lista_registros.svg';
+  static String getSVGListaRegistrosVacio() =>
+      'assets/svg/lista_registro_vacio.svg';
   static String getSVGLogin() => 'assets/svg/login.svg';
   static String getSVGLogout() => 'assets/svg/logout.svg';
-  static String getSVGLauncher() => 'assets/svg/info_dis.svg';
   static String getSVGRegistroAsis() => 'assets/svg/registro_asis.svg';
   static String getSVGAsistenciaSinc() => 'assets/svg/asistencia_sinc.svg';
 }

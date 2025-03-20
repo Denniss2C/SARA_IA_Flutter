@@ -35,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
                   title: 'Registrar asistencia',
                   subtitle: 'Registro de marcación',
                   onTap: () {
-                    // Navegación a EncuestaRegistrada
+                    Navigator.pushNamed(context, ListRegisterScreen.routeName);
                   },
                 ),
                 buildDrawerItem(
