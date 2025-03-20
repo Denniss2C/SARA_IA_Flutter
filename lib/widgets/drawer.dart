@@ -1,6 +1,7 @@
 import 'package:app_sara/screens/screens.dart';
 import 'package:app_sara/utils/providers/providers.dart';
 import 'package:app_sara/utils/services/login/login_dialog.dart';
+import 'package:app_sara/utils/services/login/logout_dialog.dart';
 import 'package:app_sara/utils/ui/ui.dart';
 import 'package:app_sara/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -69,10 +70,12 @@ class CustomDrawer extends StatelessWidget {
                           : 'Iniciar sesión en la aplicación',
                   onTap: () {
                     if (userProvider.userName != null) {
-                      userProvider.logout();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Sesión cerrada')),
-                      );
+                      showLogoutDialog(context, userProvider);
+                      // userProvider.logout();
+                      //Navigator.pushNamed(context, HomeScreen.routeName);
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(content: Text('Sesión cerrada')),
+                      // );
                     } else {
                       Navigator.pushNamed(context, HomeScreen.routeName);
                       showLoginDialog(context);

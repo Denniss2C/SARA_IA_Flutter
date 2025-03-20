@@ -1,7 +1,11 @@
 import 'package:app_sara/screens/screens.dart';
+import 'package:app_sara/utils/providers/providers.dart';
+import 'package:app_sara/utils/services/login/login_dialog.dart';
+import 'package:app_sara/utils/services/login/logout_dialog.dart';
 import 'package:app_sara/utils/ui/ui.dart';
 import 'package:app_sara/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,6 +14,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
@@ -81,6 +86,24 @@ class HomeScreen extends StatelessWidget {
                           ListRegisterScreen.routeName,
                         );
                       }),
+                      if (userProvider.userName != null) ...[
+                        buildCard(
+                          "Cerrar Sesión - ${userProvider.userName ?? 'Invitado'}",
+                          Icons.logout,
+                          context,
+                          () {
+                            // userProvider.logout();
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //   const SnackBar(content: Text('Sesión cerrada')),
+                            // );
+                            showLogoutDialog(context, userProvider);
+                          },
+                        ),
+                      ] else ...[
+                        buildCard("Iniciar Sesión", Icons.login, context, () {
+                          showLoginDialog(context);
+                        }),
+                      ],
                     ],
                   );
                 },

@@ -62,7 +62,7 @@ Future<Map<String, String>?> showLoginDialog(BuildContext context) async {
                   if (userProvider.userName != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Bienvenido, ${userProvider.userName}'),
+                        content: Text('Bienvenid@, ${userProvider.userName}'),
                       ),
                     );
                   } else {
