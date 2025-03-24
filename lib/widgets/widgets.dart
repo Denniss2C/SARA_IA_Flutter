@@ -3,3 +3,4 @@ export './drawerHeader.dart';
 export './drawerItem.dart';
 export './homeCard.dart';
 export './loadingDialog.dart';
+export './showPermissionDialog.dart';

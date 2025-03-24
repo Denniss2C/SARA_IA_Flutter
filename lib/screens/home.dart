@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:app_sara/screens/screens.dart';
 import 'package:app_sara/utils/providers/providers.dart';
 import 'package:app_sara/utils/services/login/login_dialog.dart';
@@ -5,12 +9,98 @@ import 'package:app_sara/utils/services/login/logout_dialog.dart';
 import 'package:app_sara/utils/ui/ui.dart';
 import 'package:app_sara/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   static const routeName = '/home';
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    startListeningLocation();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final permissionProvider = Provider.of<PermissionProvider>(
+        context,
+        listen: false,
+      );
+      if (!permissionProvider.dialogShown) {
+        showPermissionDialog(context, permissionProvider);
+      }
+    });
+  }
+
+  Position? currentLocation;
+  StreamSubscription? subscription;
+
+  locationPermission({VoidCallback? inSuccess}) async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Servicio de ubicación desactivado');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied)
+      permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.denied) {
+      await Geolocator.openAppSettings();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      await Geolocator.openAppSettings();
+      return Future.error("Permisos de locacion no responde");
+    }
+    {
+      inSuccess?.call();
+    }
+  }
+
+  void startListeningLocation() {
+    locationPermission(
+      inSuccess: () async {
+        subscription = Geolocator.getPositionStream(
+          locationSettings:
+              Platform.isAndroid
+                  ? AndroidSettings(
+                    foregroundNotificationConfig:
+                        const ForegroundNotificationConfig(
+                          notificationTitle: "Location fetching in background",
+                          notificationText:
+                              "Your current location is being tracked",
+                          enableWakeLock: true,
+                        ),
+                  )
+                  : AppleSettings(
+                    accuracy: LocationAccuracy.high,
+                    activityType: ActivityType.fitness,
+                    pauseLocationUpdatesAutomatically: true,
+                    showBackgroundLocationIndicator: false,
+                  ),
+        ).listen((Position event) async {
+          currentLocation = event;
+          log(currentLocation.toString(), name: 'currentLocation');
+
+          // Actualiza la ubicación en el Provider
+          if (mounted) {
+            Provider.of<LocationProvider>(
+              context,
+              listen: false,
+            ).updateLocation(event.latitude, event.longitude);
+          }
+        });
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +167,8 @@ class HomeScreen extends StatelessWidget {
                       buildCard("Por Sincronizar", Icons.sync, context, () {
                         Navigator.pushNamed(
                           context,
-                          ListRegisterScreen.routeName,
+                          //Cambiar
+                          RegisterAsistScreen.routeName,
                         );
                       }),
                       buildCard("Acerca de", Icons.info, context, () {
@@ -89,10 +180,6 @@ class HomeScreen extends StatelessWidget {
                           Icons.logout,
                           context,
                           () {
-                            // userProvider.logout();
-                            // ScaffoldMessenger.of(context).showSnackBar(
-                            //   const SnackBar(content: Text('Sesión cerrada')),
-                            // );
                             showLogoutDialog(context, userProvider);
                           },
                         ),
@@ -118,5 +205,11 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    subscription?.cancel();
+    super.dispose();
   }
 }
