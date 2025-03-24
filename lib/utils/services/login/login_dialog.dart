@@ -1,4 +1,5 @@
 import 'package:app_sara/utils/providers/providers.dart';
+import 'package:app_sara/utils/services/login/auth_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +60,8 @@ Future<Map<String, String>?> showLoginDialog(BuildContext context) async {
                     password,
                   ); // Llama al método login del UserProvider
                   Navigator.of(context).pop(); // Cierra el diálogo
+                  await AuthStorage.saveCredentials(username, password);
+
                   if (userProvider.userName != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

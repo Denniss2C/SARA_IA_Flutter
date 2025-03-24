@@ -22,4 +22,6 @@ class TrackingDrawables {
   static String getSVGLogout() => 'assets/svg/logout.svg';
   static String getSVGRegistroAsis() => 'assets/svg/registro_asis.svg';
   static String getSVGAsistenciaSinc() => 'assets/svg/asistencia_sinc.svg';
+  static String getSVGChico() => 'assets/svg/chico.svg';
+  static String getSVGChica() => 'assets/svg/chica.svg';
 }

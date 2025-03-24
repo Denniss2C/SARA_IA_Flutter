@@ -9,6 +9,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => PasswordVisibilityProvider()),
+        ChangeNotifierProvider(create: (_) => BeneficiariosProvider()),
       ],
       child: MyApp(),
     ),

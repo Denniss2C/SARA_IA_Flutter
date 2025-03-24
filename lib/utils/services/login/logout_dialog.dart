@@ -1,9 +1,15 @@
 import 'package:app_sara/utils/providers/providers.dart';
+import 'package:app_sara/utils/services/login/auth_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../screens/screens.dart';
 
-void showLogoutDialog(BuildContext context, UserProvider userProvider) {
+void showLogoutDialog(BuildContext context, UserProvider userProvider) async {
+  final beneficiariosProvider = Provider.of<BeneficiariosProvider>(
+    context,
+    listen: false,
+  );
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -18,8 +24,12 @@ void showLogoutDialog(BuildContext context, UserProvider userProvider) {
             child: const Text("Cancelar"),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
+              // Marcar el onPressed como async
+              await AuthStorage.clearCredentials();
               userProvider.logout();
+              beneficiariosProvider.resetOnLogout();
+
               Navigator.pushNamed(context, HomeScreen.routeName);
               ScaffoldMessenger.of(
                 context,
