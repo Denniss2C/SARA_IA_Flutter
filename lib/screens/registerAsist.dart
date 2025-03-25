@@ -15,6 +15,7 @@ class RegisterAsistScreen extends StatefulWidget {
 
 class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
   late LocationProvider locationProvider;
+  Map<String, dynamic>? beneficiario; // Variable para guardar la info
 
   @override
   void initState() {
@@ -31,6 +32,10 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Recibir los argumentos pasados
+    beneficiario ??=
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -63,21 +68,30 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Header section
-            _buildSectionHeader('REGISTRO DE ASISTENCIA MIES'),
+            buildSectionHeader('REGISTRO DE ASISTENCIA MIES'),
 
-            _buildSectionContent('CENTRO', 'DEMOS LA MANO AMIGOS'),
-            _buildSectionContent('SERVICIO', 'DESARROLLO INFANTIL INTEGRAL'),
-            _buildSectionContent(
-              'MODALIDAD',
-              'CENTRO DE DESARROLLO INFANTIL-CDI-MIES (DIRECTOS - CONVENIOS)',
-            ),
+            if (beneficiario != null) ...[
+              buildSectionContent('CENTRO', '${beneficiario!["nombreCentro"]}'),
+              buildSectionContent(
+                'SERVICIO',
+                '${beneficiario!["nombresServicios"]}',
+              ),
+              buildSectionContent(
+                'MODALIDAD',
+                '${beneficiario!["nombresModalidades"]}',
+              ),
 
-            // Beneficiary information
-            _buildInfoCard(
-              title: 'Nombres y apellidos',
-              value: 'REYES MORA MARTHA JACQUELINE',
-            ),
-            _buildInfoCard(title: 'Cédula de Identidad', value: '1713824140'),
+              // Mostrar la información del beneficiario
+              buildInfoCard(
+                title: 'Nombres y apellidos',
+                value:
+                    "${beneficiario!["apellidoBeneficiario"]} ${beneficiario!["nombreBeneficiario"]}",
+              ),
+              buildInfoCard(
+                title: 'Cédula de Identidad',
+                value: beneficiario!["cedulaBeneficiario"],
+              ),
+            ],
 
             // Escucha el Provider y actualiza la UI automáticamente
             Consumer<LocationProvider>(
@@ -101,68 +115,14 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
             listen: false,
           ).fetchCurrentLocation();
         },
-        child: const Text('ACTUALIZAR UBICACIÓN'),
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: Colors.blue,
+        //hacer mas grande el boton y sin bordes redondos
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         ),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-
-  Widget _buildSectionContent(String label, String value) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
-          const SizedBox(height: 4),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInfoCard({required String title, required String value}) {
-    return Card(
-      elevation: 3,
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              value,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: TrackingDimens.dimen_8),
+          child: const Text('REGISTRAR ASISTENCIA'),
         ),
       ),
     );

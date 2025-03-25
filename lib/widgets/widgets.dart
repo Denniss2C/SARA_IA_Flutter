@@ -2,5 +2,8 @@ export './drawer.dart';
 export './drawerHeader.dart';
 export './drawerItem.dart';
 export './homeCard.dart';
+export './infoCardRegister.dart';
 export './loadingDialog.dart';
+export './sectionContentRegister.dart';
+export './sectionHeaderRegister.dart';
 export './showPermissionDialog.dart';

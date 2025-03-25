@@ -1,3 +1,4 @@
+import 'package:app_sara/screens/screens.dart';
 import 'package:app_sara/utils/providers/providers.dart';
 import 'package:app_sara/utils/services/beneficiary/atencion_dialog.dart';
 import 'package:app_sara/utils/services/login/login_dialog.dart';
@@ -164,6 +165,14 @@ class ListRegisterScreen extends StatelessWidget {
                           ),
                         ),
                         trailing: const Icon(Icons.keyboard_arrow_down),
+                        onTap: () {
+                          //Navegar al registro de asistencia
+                          Navigator.pushNamed(
+                            context,
+                            RegisterAsistScreen.routeName,
+                            arguments: beneficiario,
+                          );
+                        },
                       ),
                     );
                   },
