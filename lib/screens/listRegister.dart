@@ -16,6 +16,10 @@ class ListRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final beneficiariosProvider = Provider.of<BeneficiariosProvider>(context);
+    // List<String> options = [
+    //   "Registro de asistencia",
+    //   "Reempadronar beneficiario",
+    // ];
 
     return Scaffold(
       appBar: PreferredSize(
@@ -164,7 +168,40 @@ class ListRegisterScreen extends StatelessWidget {
                                     : Colors.green,
                           ),
                         ),
-                        trailing: const Icon(Icons.keyboard_arrow_down),
+                        trailing: PopupMenuButton<String>(
+                          onSelected: (String value) {
+                            if (value == "Registro de asistencia") {
+                              // Acción para Registro de asistencia
+                              Navigator.pushNamed(
+                                context,
+                                RegisterAsistScreen.routeName,
+                                arguments: beneficiario,
+                              );
+                            } else if (value == "Reempadronar beneficiario") {
+                              // Acción para Reempadronar beneficiario
+                              print("Reempadronar beneficiario seleccionado");
+                            }
+                          },
+                          itemBuilder:
+                              (
+                                BuildContext context,
+                              ) => <PopupMenuEntry<String>>[
+                                const PopupMenuItem<String>(
+                                  value: "Registro de asistencia",
+                                  child: Text("Registro de asistencia"),
+                                ),
+                                PopupMenuItem<String>(
+                                  value: "Reempadronar beneficiario",
+                                  enabled:
+                                      beneficiario["estadoAsistenciaRecFac"] ==
+                                              "I"
+                                          ? false
+                                          : true,
+                                  child: Text("Reempadronar beneficiario"),
+                                ),
+                              ],
+                          child: const Icon(Icons.keyboard_arrow_down),
+                        ),
                         onTap: () {
                           //Navegar al registro de asistencia
                           Navigator.pushNamed(

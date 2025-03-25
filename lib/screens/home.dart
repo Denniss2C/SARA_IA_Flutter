@@ -167,8 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       buildCard("Por Sincronizar", Icons.sync, context, () {
                         Navigator.pushNamed(
                           context,
-                          //Cambiar
-                          RegisterAsistScreen.routeName,
+                          AsistSincronizarScreen.routeName,
                         );
                       }),
                       buildCard("Acerca de", Icons.info, context, () {

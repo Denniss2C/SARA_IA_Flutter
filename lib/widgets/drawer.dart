@@ -43,7 +43,10 @@ class CustomDrawer extends StatelessWidget {
                   title: 'Asistencias por sincronizar',
                   subtitle: 'Asistencias pendientes de sincronizar',
                   onTap: () {
-                    // Navegación a EncuestaRegistrada
+                    Navigator.pushNamed(
+                      context,
+                      AsistSincronizarScreen.routeName,
+                    );
                   },
                 ),
                 buildDrawerItem(

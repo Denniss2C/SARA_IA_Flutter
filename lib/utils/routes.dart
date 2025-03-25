@@ -6,4 +6,5 @@ final routes = {
   ListRegisterScreen.routeName: (context) => const ListRegisterScreen(),
   AboutScreen.routeName: (context) => const AboutScreen(),
   RegisterAsistScreen.routeName: (context) => const RegisterAsistScreen(),
+  AsistSincronizarScreen.routeName: (context) => const AsistSincronizarScreen(),
 };
