@@ -15,7 +15,7 @@ void showAtencionDialog(BuildContext context) async {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return AlertDialog(
+      return AlertDialog.adaptive(
         title: const Text("Atención!"),
         content: const Text(
           "Recuerde que la carga de beneficiatios se debe realizar únicamente"

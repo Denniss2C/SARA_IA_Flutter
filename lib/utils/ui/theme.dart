@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:app_sara/utils/ui/color.dart';
+import 'package:flutter/material.dart';
 
 class TrackingThemes {
   TrackingThemes._();
@@ -13,6 +13,7 @@ class TrackingThemes {
         primary: TrackingColors.primario,
         surface: TrackingColors.blanco,
       ),
+      useMaterial3: true,
     );
   }
 
@@ -25,6 +26,7 @@ class TrackingThemes {
         primary: TrackingColors.primaryDark,
         surface: TrackingColors.negro,
       ),
+      useMaterial3: true,
     );
   }
 }

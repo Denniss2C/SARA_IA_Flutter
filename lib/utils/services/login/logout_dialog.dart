@@ -13,7 +13,7 @@ void showLogoutDialog(BuildContext context, UserProvider userProvider) async {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return AlertDialog(
+      return AlertDialog.adaptive(
         title: const Text("Confirmar Cierre"),
         content: const Text("¿Estás seguro de que quieres cerrar sesión?"),
         actions: [

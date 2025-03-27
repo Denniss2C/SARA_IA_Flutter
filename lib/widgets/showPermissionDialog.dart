@@ -6,7 +6,7 @@ void showPermissionDialog(BuildContext context, PermissionProvider provider) {
     context: context,
     barrierDismissible: false,
     builder: (BuildContext context) {
-      return AlertDialog(
+      return AlertDialog.adaptive(
         title: Row(
           children: [
             Icon(Icons.assignment, color: Colors.blue),

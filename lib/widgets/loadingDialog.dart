@@ -7,7 +7,7 @@ class LoadingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return AlertDialog.adaptive(
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
