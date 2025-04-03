@@ -2,6 +2,7 @@ import 'package:app_sara/utils/services/login/login_service.dart';
 import 'package:app_sara/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProvider with ChangeNotifier {
   String? _userName;
@@ -35,6 +36,13 @@ class UserProvider with ChangeNotifier {
         if (_canFoguear) {
           _userName = result['nombreuser'];
           _userEmail = "Bienvenid@";
+
+          // Guarda en SharedPreferences
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setString('userName', _userName!);
+          await prefs.setString('userEmail', _userEmail!);
+          await prefs.setBool('canFoguear', _canFoguear);
+
           notifyListeners();
 
           return {
@@ -69,10 +77,34 @@ class UserProvider with ChangeNotifier {
     }
   }
 
-  void logout() {
+  // void logout() {
+  //   _userName = null;
+  //   _userEmail = null;
+  //   _canFoguear = false;
+  //   notifyListeners();
+  // }
+
+  Future<void> loadUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _userName = prefs.getString('userName');
+    _userEmail = prefs.getString('userEmail');
+    _canFoguear = prefs.getBool('canFoguear') ?? false;
+    notifyListeners();
+  }
+
+  Future<void> setUserName(String userName) async {
+    _userName = userName;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('userName', userName);
+    notifyListeners();
+  }
+
+  Future<void> logout() async {
     _userName = null;
     _userEmail = null;
     _canFoguear = false;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear(); // Borra toda la información guardada
     notifyListeners();
   }
 

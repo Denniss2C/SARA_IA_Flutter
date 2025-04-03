@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.app_sara"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 35
     ndkVersion = "29.0.13113456"
 
     compileOptions {
@@ -24,10 +24,13 @@ android {
         applicationId = "com.example.app_sara"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 21
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+
+        //Versiones recientes de android requieren habilitar el soporte multidex
+        multiDexEnabled = true
     }
 
     buildTypes {
