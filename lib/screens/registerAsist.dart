@@ -16,23 +16,11 @@ class RegisterAsistScreen extends StatefulWidget {
 class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
   late LocationProvider locationProvider;
   Map<String, dynamic>? beneficiario; // Variable para guardar la info
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        locationProvider = Provider.of<LocationProvider>(
-          context,
-          listen: false,
-        );
-      });
-    });
-  }
+  double? latitude;
+  double? longitude;
 
   @override
   Widget build(BuildContext context) {
-    // Recibir los argumentos pasados
     beneficiario ??=
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
 
@@ -93,14 +81,10 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
               ),
             ],
 
-            // Escucha el Provider y actualiza la UI automáticamente
-            Consumer<LocationProvider>(
-              builder: (context, locationProvider, child) {
-                return Text(
-                  "Ubicación: ${locationProvider.latitude?.toStringAsFixed(4) ?? 'Cargando...'}, ${locationProvider.longitude?.toStringAsFixed(4) ?? 'Cargando...'}",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                );
-              },
+            // Muestra las coordenadas actuales
+            Text(
+              "Ubicación: ${latitude?.toStringAsFixed(4) ?? 'No obtenida'}, ${longitude?.toStringAsFixed(4) ?? 'No obtenida'}",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
 
             // Divider line
@@ -109,13 +93,24 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
         ),
       ),
       bottomNavigationBar: ElevatedButton(
-        onPressed: () {
-          Provider.of<LocationProvider>(
+        onPressed: () async {
+          // Obtener la ubicación actual cuando se presiona el botón
+          await Provider.of<LocationProvider>(
             context,
             listen: false,
           ).fetchCurrentLocation();
+
+          // Obtener las coordenadas desde el proveedor
+          setState(() {
+            latitude =
+                Provider.of<LocationProvider>(context, listen: false).latitude;
+            longitude =
+                Provider.of<LocationProvider>(context, listen: false).longitude;
+          });
+
+          // Aquí puedes agregar la lógica para registrar la asistencia
+          // con las coordenadas obtenidas
         },
-        //hacer mas grande el boton y sin bordes redondos
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
