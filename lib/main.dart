@@ -3,11 +3,12 @@ import 'package:app_sara/utils/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()..loadUser()),
         ChangeNotifierProvider(create: (_) => PasswordVisibilityProvider()),
         ChangeNotifierProvider(create: (_) => BeneficiariosProvider()),
         ChangeNotifierProvider(create: (_) => LocationProvider()),

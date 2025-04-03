@@ -72,12 +72,19 @@ class _HomeScreenState extends State<HomeScreen> {
           locationSettings:
               Platform.isAndroid
                   ? AndroidSettings(
+                    accuracy: LocationAccuracy.high,
+                    distanceFilter:
+                        10, // Evita demasiadas actualizaciones innecesarias
+                    forceLocationManager:
+                        true, // Usa el LocationManager del sistema
+                    intervalDuration: const Duration(seconds: 10),
                     foregroundNotificationConfig:
                         const ForegroundNotificationConfig(
-                          notificationTitle: "Location fetching in background",
+                          notificationTitle: "Ubicación activa",
                           notificationText:
-                              "Your current location is being tracked",
-                          enableWakeLock: true,
+                              "Seguimiento de tu ubicación en segundo plano",
+                          enableWakeLock:
+                              false, // 🚨 Desactiva WAKE_LOCK para evitar el error
                         ),
                   )
                   : AppleSettings(
