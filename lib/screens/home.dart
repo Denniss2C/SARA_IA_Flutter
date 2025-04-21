@@ -120,17 +120,17 @@ class _HomeScreenState extends State<HomeScreen> {
             gradient: LinearGradient(
               colors:
                   Theme.of(context).brightness == Brightness.light
-                      ? [TrackingColors.lightGrey, Colors.blueGrey.shade700]
-                      : [TrackingColors.negro, TrackingColors.lightGrey],
+                      ? [SaraColors.lightGrey, Colors.blueGrey.shade700]
+                      : [SaraColors.negro, SaraColors.lightGrey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
           ),
           child: AppBar(
-            title: Text("SARA", style: TextStyle(color: TrackingColors.blanco)),
+            title: Text("SARA", style: TextStyle(color: SaraColors.blanco)),
             backgroundColor: Colors.transparent,
             //elevation: 0, // Sin sombra
-            iconTheme: IconThemeData(color: TrackingColors.blanco),
+            iconTheme: IconThemeData(color: SaraColors.blanco),
             centerTitle: true,
           ),
         ),
@@ -141,8 +141,8 @@ class _HomeScreenState extends State<HomeScreen> {
           gradient: LinearGradient(
             colors:
                 Theme.of(context).brightness == Brightness.light
-                    ? [Colors.blue.shade300, TrackingColors.blanco]
-                    : [Colors.blue.shade300, TrackingColors.lightGrey],
+                    ? [Colors.blue.shade300, SaraColors.blanco]
+                    : [Colors.blue.shade300, SaraColors.lightGrey],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             SizedBox(height: 50),
-            Image.asset(TrackingDrawables.getLogoColor(), height: 100),
+            Image.asset(SaraDrawables.getLogoColor(), height: 100),
             SizedBox(height: 20),
             Expanded(
               child: LayoutBuilder(
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   int crossAxisCount = constraints.maxWidth > 1000 ? 4 : 2;
                   return GridView.count(
                     crossAxisCount: crossAxisCount,
-                    padding: EdgeInsets.all(TrackingDimens.dimen_32),
+                    padding: EdgeInsets.all(SaraDimens.dimen_32),
                     children: [
                       buildCard(
                         "Registro de Marcación",
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
-                TrackingDrawables.getFlatEcuador(),
+                SaraDrawables.getFlatEcuador(),
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
               ),

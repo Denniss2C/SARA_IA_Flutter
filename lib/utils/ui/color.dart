@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TrackingColors {
-  TrackingColors._();
+class SaraColors {
+  SaraColors._();
 
   static Color get primario => const Color.fromARGB(255, 166, 30, 229);
   static Color get negro => const Color.fromARGB(255, 0, 0, 0);
