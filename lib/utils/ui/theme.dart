@@ -1,17 +1,17 @@
 import 'package:app_sara/utils/ui/color.dart';
 import 'package:flutter/material.dart';
 
-class TrackingThemes {
-  TrackingThemes._();
+class SaraThemes {
+  SaraThemes._();
 
   static ThemeData get light {
     return ThemeData(
       brightness: Brightness.light,
-      primaryColor: TrackingColors.primario,
-      scaffoldBackgroundColor: TrackingColors.blanco,
+      primaryColor: SaraColors.primario,
+      scaffoldBackgroundColor: SaraColors.blanco,
       colorScheme: ColorScheme.light(
-        primary: TrackingColors.primario,
-        surface: TrackingColors.blanco,
+        primary: SaraColors.primario,
+        surface: SaraColors.blanco,
       ),
       useMaterial3: true,
     );
@@ -20,11 +20,11 @@ class TrackingThemes {
   static ThemeData get dark {
     return ThemeData(
       brightness: Brightness.dark,
-      primaryColor: TrackingColors.primaryDark,
-      scaffoldBackgroundColor: TrackingColors.negro,
+      primaryColor: SaraColors.primaryDark,
+      scaffoldBackgroundColor: SaraColors.negro,
       colorScheme: ColorScheme.dark(
-        primary: TrackingColors.primaryDark,
-        surface: TrackingColors.negro,
+        primary: SaraColors.primaryDark,
+        surface: SaraColors.negro,
       ),
       useMaterial3: true,
     );

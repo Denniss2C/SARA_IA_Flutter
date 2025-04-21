@@ -20,8 +20,8 @@ Widget buildCard(
             size: 70,
             color:
                 Theme.of(context).brightness == Brightness.light
-                    ? TrackingColors.indigo
-                    : TrackingColors.blanco,
+                    ? SaraColors.indigo
+                    : SaraColors.blanco,
           ),
           SizedBox(height: 10),
           Text(

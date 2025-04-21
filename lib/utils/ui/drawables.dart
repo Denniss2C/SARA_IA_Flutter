@@ -1,5 +1,5 @@
-class TrackingDrawables {
-  TrackingDrawables._();
+class SaraDrawables {
+  SaraDrawables._();
 
   static String getLogoColor() => 'assets/images/LOCOLOR.png';
   static String getLogoBlanco() => 'assets/images/LOBLANCO.png';

@@ -1,7 +1,7 @@
 import 'package:app_sara/screens/splash.dart';
-import 'package:flutter/material.dart';
 import 'package:app_sara/utils/routes.dart';
 import 'package:app_sara/utils/ui/ui.dart';
+import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       routes: routes,
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
-      theme: TrackingThemes.light,
-      darkTheme: TrackingThemes.dark,
+      theme: SaraThemes.light,
+      darkTheme: SaraThemes.dark,
       themeMode: ThemeMode.system,
     );
   }

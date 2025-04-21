@@ -1,5 +1,5 @@
-class TrackingDimens {
-  TrackingDimens._();
+class SaraDimens {
+  SaraDimens._();
 
   static const double dimen_4 = 4;
   static const double dimen_8 = 8;

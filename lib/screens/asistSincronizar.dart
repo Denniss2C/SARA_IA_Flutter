@@ -22,8 +22,8 @@ class _AsistSincronizarScreenState extends State<AsistSincronizarScreen> {
             gradient: LinearGradient(
               colors:
                   Theme.of(context).brightness == Brightness.light
-                      ? [TrackingColors.lightGrey, Colors.blueGrey.shade700]
-                      : [TrackingColors.negro, TrackingColors.lightGrey],
+                      ? [SaraColors.lightGrey, Colors.blueGrey.shade700]
+                      : [SaraColors.negro, SaraColors.lightGrey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -31,11 +31,11 @@ class _AsistSincronizarScreenState extends State<AsistSincronizarScreen> {
           child: AppBar(
             title: Text(
               "ASISTENCIAS POR SINCRONIZAR",
-              style: TextStyle(color: TrackingColors.blanco),
+              style: TextStyle(color: SaraColors.blanco),
             ),
             backgroundColor: Colors.transparent,
             //elevation: 0, // Sin sombra
-            iconTheme: IconThemeData(color: TrackingColors.blanco),
+            iconTheme: IconThemeData(color: SaraColors.blanco),
             centerTitle: true,
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
@@ -49,7 +49,7 @@ class _AsistSincronizarScreenState extends State<AsistSincronizarScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            Icon(Icons.list_alt, size: 100, color: TrackingColors.indigo),
+            Icon(Icons.list_alt, size: 100, color: SaraColors.indigo),
             const SizedBox(height: 20),
             const Text(
               'No hay información disponible',

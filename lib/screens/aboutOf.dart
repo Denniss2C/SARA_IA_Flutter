@@ -18,8 +18,8 @@ class AboutScreen extends StatelessWidget {
             gradient: LinearGradient(
               colors:
                   Theme.of(context).brightness == Brightness.light
-                      ? [TrackingColors.lightGrey, Colors.blueGrey.shade700]
-                      : [TrackingColors.negro, TrackingColors.lightGrey],
+                      ? [SaraColors.lightGrey, Colors.blueGrey.shade700]
+                      : [SaraColors.negro, SaraColors.lightGrey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -27,10 +27,10 @@ class AboutScreen extends StatelessWidget {
           child: AppBar(
             title: Text(
               "Acerca de",
-              style: TextStyle(color: TrackingColors.blanco),
+              style: TextStyle(color: SaraColors.blanco),
             ),
             backgroundColor: Colors.transparent,
-            iconTheme: IconThemeData(color: TrackingColors.blanco),
+            iconTheme: IconThemeData(color: SaraColors.blanco),
             centerTitle: true,
             actions: [
               IconButton(
@@ -49,8 +49,8 @@ class AboutScreen extends StatelessWidget {
           gradient: LinearGradient(
             colors:
                 Theme.of(context).brightness == Brightness.light
-                    ? [Colors.blue.shade300, TrackingColors.blanco]
-                    : [Colors.blue.shade300, TrackingColors.lightGrey],
+                    ? [Colors.blue.shade300, SaraColors.blanco]
+                    : [Colors.blue.shade300, SaraColors.lightGrey],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -73,7 +73,7 @@ class AboutScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            Image.asset(TrackingDrawables.getLogoSARA(), height: 200),
+            Image.asset(SaraDrawables.getLogoSARA(), height: 200),
             SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 32),
@@ -117,7 +117,7 @@ class AboutScreen extends StatelessWidget {
             ),
             Spacer(),
             Image.asset(
-              TrackingDrawables.getFlatEcuador(),
+              SaraDrawables.getFlatEcuador(),
               fit: BoxFit.fitWidth,
               width: double.infinity,
             ),

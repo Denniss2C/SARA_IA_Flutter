@@ -23,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 buildDrawerItem(
-                  icon: TrackingDrawables.getSVGPrincipal(),
+                  icon: SaraDrawables.getSVGPrincipal(),
                   title: 'Principal',
                   subtitle: 'Pantalla principal',
                   onTap: () {
@@ -31,7 +31,7 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 buildDrawerItem(
-                  icon: TrackingDrawables.getSVGRegistroAsis(),
+                  icon: SaraDrawables.getSVGRegistroAsis(),
                   title: 'Registrar asistencia',
                   subtitle: 'Registro de marcación',
                   onTap: () {
@@ -39,7 +39,7 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 buildDrawerItem(
-                  icon: TrackingDrawables.getSVGAsistenciaSinc(),
+                  icon: SaraDrawables.getSVGAsistenciaSinc(),
                   title: 'Asistencias por sincronizar',
                   subtitle: 'Asistencias pendientes de sincronizar',
                   onTap: () {
@@ -50,7 +50,7 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 buildDrawerItem(
-                  icon: TrackingDrawables.getSVGAcercaDe(),
+                  icon: SaraDrawables.getSVGAcercaDe(),
                   title: 'Acerca de',
                   subtitle: 'Información aplicación',
                   onTap: () {
@@ -61,8 +61,8 @@ class CustomDrawer extends StatelessWidget {
                 buildDrawerItem(
                   icon:
                       userProvider.userName != null
-                          ? TrackingDrawables.getSVGLogout()
-                          : TrackingDrawables.getSVGLogin(),
+                          ? SaraDrawables.getSVGLogout()
+                          : SaraDrawables.getSVGLogin(),
                   title:
                       userProvider.userName != null
                           ? 'Cerrar Sesión'

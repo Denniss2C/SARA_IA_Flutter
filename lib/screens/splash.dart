@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:app_sara/screens/screens.dart';
 import 'package:app_sara/utils/ui/ui.dart';
+import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = "/splash";
@@ -35,11 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             Image.asset(
               Theme.of(context).brightness == Brightness.light
-                  ? TrackingDrawables.getLogoColor()
-                  : TrackingDrawables.getLogoBlanco(),
+                  ? SaraDrawables.getLogoColor()
+                  : SaraDrawables.getLogoBlanco(),
             ),
             const Padding(
-              padding: EdgeInsets.only(top: TrackingDimens.dimen_24),
+              padding: EdgeInsets.only(top: SaraDimens.dimen_24),
               child: CircularProgressIndicator.adaptive(),
             ),
           ],

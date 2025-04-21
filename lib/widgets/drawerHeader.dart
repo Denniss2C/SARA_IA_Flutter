@@ -19,11 +19,11 @@ Widget buildHeader(UserProvider userProvider) {
   }
 
   return Container(
-    padding: const EdgeInsets.all(TrackingDimens.dimen_24),
+    padding: const EdgeInsets.all(SaraDimens.dimen_24),
     width: double.infinity,
     decoration: BoxDecoration(
       gradient: LinearGradient(
-        colors: [TrackingColors.lightGrey, Colors.blueGrey.shade700],
+        colors: [SaraColors.lightGrey, Colors.blueGrey.shade700],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
@@ -44,7 +44,7 @@ Widget buildHeader(UserProvider userProvider) {
                       color: Colors.black,
                     ),
                   )
-                  : Image.asset(TrackingDrawables.getUsuario()),
+                  : Image.asset(SaraDrawables.getUsuario()),
         ),
         const SizedBox(height: 10),
         Text(

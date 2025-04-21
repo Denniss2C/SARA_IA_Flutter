@@ -29,8 +29,8 @@ class ListRegisterScreen extends StatelessWidget {
             gradient: LinearGradient(
               colors:
                   Theme.of(context).brightness == Brightness.light
-                      ? [TrackingColors.lightGrey, Colors.blueGrey.shade700]
-                      : [TrackingColors.negro, TrackingColors.lightGrey],
+                      ? [SaraColors.lightGrey, Colors.blueGrey.shade700]
+                      : [SaraColors.negro, SaraColors.lightGrey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -38,11 +38,11 @@ class ListRegisterScreen extends StatelessWidget {
           child: AppBar(
             title: Text(
               "Beneficiarios del centro",
-              style: TextStyle(color: TrackingColors.blanco),
+              style: TextStyle(color: SaraColors.blanco),
             ),
             backgroundColor: Colors.transparent,
             //elevation: 0, // Sin sombra
-            iconTheme: IconThemeData(color: TrackingColors.blanco),
+            iconTheme: IconThemeData(color: SaraColors.blanco),
             centerTitle: true,
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
@@ -59,11 +59,7 @@ class ListRegisterScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 20),
-                    Icon(
-                      Icons.list_alt,
-                      size: 100,
-                      color: TrackingColors.indigo,
-                    ),
+                    Icon(Icons.list_alt, size: 100, color: SaraColors.indigo),
                     const SizedBox(height: 20),
                     const Text(
                       'No hay información disponible',
@@ -101,7 +97,7 @@ class ListRegisterScreen extends StatelessWidget {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: TrackingColors.indigo,
+                        backgroundColor: SaraColors.indigo,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -144,10 +140,10 @@ class ListRegisterScreen extends StatelessWidget {
                           backgroundColor: Colors.blue.shade100,
                           child: SvgPicture.asset(
                             beneficiario["tipoUsuario"] == "E"
-                                ? TrackingDrawables.getSVGAsistenciaSinc()
+                                ? SaraDrawables.getSVGAsistenciaSinc()
                                 : beneficiario["sexo"] == "MASCULINO"
-                                ? TrackingDrawables.getSVGChico()
-                                : TrackingDrawables.getSVGChica(),
+                                ? SaraDrawables.getSVGChico()
+                                : SaraDrawables.getSVGChica(),
                           ),
                         ),
                         title: Text(

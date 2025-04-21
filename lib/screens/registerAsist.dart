@@ -32,8 +32,8 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
             gradient: LinearGradient(
               colors:
                   Theme.of(context).brightness == Brightness.light
-                      ? [TrackingColors.lightGrey, Colors.blueGrey.shade700]
-                      : [TrackingColors.negro, TrackingColors.lightGrey],
+                      ? [SaraColors.lightGrey, Colors.blueGrey.shade700]
+                      : [SaraColors.negro, SaraColors.lightGrey],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -41,10 +41,10 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
           child: AppBar(
             title: Text(
               "BENEFICIARIOS DEL CENTRO",
-              style: TextStyle(color: TrackingColors.blanco),
+              style: TextStyle(color: SaraColors.blanco),
             ),
             backgroundColor: Colors.transparent,
-            iconTheme: IconThemeData(color: TrackingColors.blanco),
+            iconTheme: IconThemeData(color: SaraColors.blanco),
             centerTitle: true,
           ),
         ),
@@ -116,7 +116,7 @@ class _RegisterAsistScreenState extends State<RegisterAsistScreen> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(bottom: TrackingDimens.dimen_8),
+          padding: const EdgeInsets.only(bottom: SaraDimens.dimen_8),
           child: const Text('REGISTRAR ASISTENCIA'),
         ),
       ),
